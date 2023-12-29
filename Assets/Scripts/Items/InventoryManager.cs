@@ -36,4 +36,18 @@ public class InventoryManager : MonoBehaviour, IGameManager
 
         DisplayItems();
     }
+
+    public List<string> GetItemList()
+    {
+        return new List<string>(items.Keys);
+    }
+
+    public int GetItemCount(string name)
+    {
+        if (items.ContainsKey(name))
+        {
+            return items[name];
+        }
+        return 0;
+    }
 }
