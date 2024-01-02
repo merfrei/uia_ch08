@@ -6,6 +6,12 @@ public class BasicUI : MonoBehaviour
 {
     void OnGUI()
     {
+        DrawInventoryDashboard();
+
+    }
+
+    void DrawInventoryDashboard()
+    {
         int posX = 10;
         int posY = 10;
         int width = 100;
@@ -22,7 +28,19 @@ public class BasicUI : MonoBehaviour
             int count = Managers.Inventory.GetItemCount(item);
             Texture2D image = Resources.Load<Texture2D>($"Icons/{item}");
             GUI.Box(new Rect(posX, posY, width, height), new GUIContent($"({count})", image));
+            if (GUI.Button(new Rect(posX, posY + height + buffer, width, height), $"Equip {item}"))
+            {
+                Managers.Inventory.EquipItem(item);
+            }
             posX += width + buffer;
+        }
+
+        string equipped = Managers.Inventory.equippedItem;
+        if (equipped != null)
+        {
+            posX = Screen.width - (width + buffer);
+            Texture2D image = Resources.Load<Texture2D>($"Icons/{equipped}");
+            GUI.Box(new Rect(posX, posY, width, height), new GUIContent("Equipped", image));
         }
     }
 }

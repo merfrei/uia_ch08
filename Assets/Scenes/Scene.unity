@@ -286,6 +286,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dPos: {x: 0, y: -2.9, z: 0}
+  requiredKey: 0
+  keyName: 
 --- !u!65 &127531632
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1180,6 +1182,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dPos: {x: 0, y: -2.9, z: 0}
+  requiredKey: 1
+  keyName: gball
 --- !u!1001 &447713396
 PrefabInstance:
   m_ObjectHideFlags: 0
